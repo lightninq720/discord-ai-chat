@@ -25,9 +25,10 @@ class Bot(commands.Bot):
                         "content": message.content
                     }
                 ],
-                model="gpt-3.5-turbo",
+                model="gpt-4-1106-preview",
             )
-            await msg.edit(chat_completion.choices[0].message.content)
+            embed = nextcord.Embed(description=chat_completion.choices[0].message.content)
+            await msg.edit(content="", embed=embed)
 
 
 intents = nextcord.Intents.all()
